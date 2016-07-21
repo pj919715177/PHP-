@@ -17,10 +17,10 @@ function quickSort (array $arr,$left,$right) {
     $arr [$base] = $arr [$left];
     $arr [$left] = $temp;
     if ($left > $base) {
-        $arr = fastSort ($arr,$base,$left-1);
+        $arr = quickSort ($arr,$base,$left-1);
     }
     if ($last > $left) {
-        $arr = fastSort ($arr,$left+1,$last);
+        $arr = quickSort ($arr,$left+1,$last);
     }
     return $arr;
 }
