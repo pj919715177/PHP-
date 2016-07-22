@@ -1,13 +1,11 @@
 <?php
 function bubbleSort(array $arr, $last)
 {
-    $count =0;
     $index = $last;
     while ($index != 0) {
         $change = $index;
         $index = 0;
         for ($j = 0; $j < $change; $j++) {
-            $count ++;
             if ($arr[$j] > $arr[$j + 1]) {
                 $temp = $arr[$j];
                 $arr[$j] = $arr[$j + 1];
