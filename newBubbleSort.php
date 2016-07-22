@@ -19,6 +19,7 @@ function bubbleSort(array $arr, $last)
     return $arr;
 }
 
+$arr = [1, 8, 6, 3, 5, 7, 15,-1, 5, 7, 111, 999, 58];
 print_r($arr);
 echo '<br/>';
 $arr = bubbleSort($arr, count($arr) - 1);
