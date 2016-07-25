@@ -5,9 +5,8 @@
  * @param array $arr 待排序数据的存储数组
  * @param  int $end 待排序数列的末下标
  * @param int $start 待排序数列的起始下标
- * @return array 返回排序后的数组
  */
-function insertionSort($arr, $end, $start = 0)
+function insertionSort(array &$arr, $end, $start = 0)
 {
     $index = 1;
     while ($end >= $index) {
@@ -19,7 +18,6 @@ function insertionSort($arr, $end, $start = 0)
         $arr[$position] = $temp;
         $index++;
     }
-    return $arr;
 }
 
 /**
@@ -53,5 +51,5 @@ $arr = [34, 6, 6, 75, 75, 254, 26, 885, 5463, -34, 6456, -435, -4, 525, 5643252]
 echo 'before:<br/>';
 print_r($arr);
 echo '<br/>sorted<br/>';
-$arr = insertionSort($arr, count($arr) - 1);
+insertionSort($arr, count($arr) - 1);
 print_r($arr);

@@ -6,9 +6,8 @@
  *
  * @param array $arr 待排序数据的存放数组
  * @param int $last 待排序数据的末下标
- * @return array 返回排序好的数组
  */
-function bubbleSort(array $arr, $last)
+function bubbleSort(array &$arr, $last)
 {
     $index = $last;
     while ($index != 0) {
@@ -23,11 +22,10 @@ function bubbleSort(array $arr, $last)
             }
         }
     }
-    return $arr;
 }
 
 $arr = [1, 8, 6, 3, 5, 7, 15, -1, 5, 7, 111, 999, 58];
 print_r($arr);
 echo '<br/>';
-$arr = bubbleSort($arr, count($arr) - 1);
+bubbleSort($arr, count($arr) - 1);
 print_r($arr);
