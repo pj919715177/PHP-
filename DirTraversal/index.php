@@ -14,13 +14,13 @@
 
 <?php
 include_once('./DirTraversal.php');
-if (isset($_GET['path'])){
+if (isset($_GET['path'])) {
     $path = $_GET['path'];
 } else {
-    $path = '/mnt/hgfs/virtual/PHP 初级教程';
+    $path = '/mnt/hgfs/virtual/PHP_study';
 }
 $dt = new DirTraversal($path);
-$dt -> dirShow();
+$dt->dirShow();
 ?>
 
 </body>
