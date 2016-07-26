@@ -6,6 +6,7 @@
  * 计算并显示指定路径内的文件和文件夹名称、最近修改时间、类型、大小
  *
  * @property string $dir 文件夹的有效路径
+ * @property int $last 判断是否有上级目录，1表示有，0表示没有
  * @property array $dirArray 存储指定路径内的所有文件夹的名称和属性
  * @property array $fileArray 存储指定路径内的所有文件的名称和属性
  *
@@ -14,6 +15,7 @@
 class DirTraversal
 {
     private $dir;
+    private $last;
     private $dirArray = array();
     private $fileArray = array();
 
@@ -37,11 +39,14 @@ class DirTraversal
     {
         $position = strrpos($this->dir, '/');
         if ($position > 0) {
+            $this->last = 1;
             $path = substr($this->dir, 0, $position);
             $this->dirArray['../']['path'] = $path;
             $this->dirArray['../']['time'] = $this->getTime($this->dir);
             $this->dirArray['../']['type'] = 'dir';
             $this->dirArray['../']['size'] = $this->getDirSize($this->dir);
+        } else {
+            $this->last = 0;
         }
     }
 
@@ -121,6 +126,8 @@ class DirTraversal
             echo "<tr><td> $name </td><td> $time </td><td> $type </td><td> $size </td></tr>";
         }
         echo '</table>';
+        echo $this->dir . '文件夹下共有<b> ' . (count($this->dirArray) - $this->last) . ' </b>个文件夹， 和 <b>' .
+            count($this->fileArray) . '</b> 个文件。';
     }
 
     //将大小数值转换成合适的单位
