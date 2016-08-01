@@ -47,7 +47,7 @@ class ReadHugeFile
 
     private function formatContent($line)
     {
-        $line = '<pre>' . $line . '</pre><br/>';
+        $line = '<pre>' . $line . '</pre>';
         return $line;
     }
 }
